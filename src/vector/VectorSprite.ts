@@ -84,13 +84,15 @@ namespace pixi_blit {
             if (activeRaster.mem.cacheStatus > CacheStatus.Drawn) {
                 throw Error("CacheStatus for active raster in vectorSprite is not Drawn!");
             }
-            if (this._rasterId === this.activeRaster.updateId &&
-                (!this.snap || this._transformId === (this.transform as any)._worldID)) {
+
+            const rid = this.activeRaster.updateId,
+                tid = (this.transform as any)._worldID;
+            if (this._rasterId === rid &&
+                (!this.snap || this._transformId === tid)) {
                 return;
             }
-
-            this._rasterId = this.activeRaster.updateId;
-            this._transformId = (this.transform as any)._worldID;
+            this._rasterId = rid;
+            this._transformId = tid;
 
             if (!this.activeSprite) {
                 if (this.spriteGenerator) {

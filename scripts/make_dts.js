@@ -18,7 +18,7 @@ for (var i in files) {
 var tmp = require('tmp');
 var process = require('child_process');
 
-tmp.file(function (err, filename) {
+tmp.file({postfix: '.ts'}, function (err, filename) {
   fs.writeFileSync(filename, filesCompilation);
   process.exec('tsc --module none --target es5 --declaration --removeComments node_modules/pixi.js/pixi.js.d.ts ' + filename, function(err, stdout, stderr) {
     var dtsPath = filename.replace('.ts', '.d.ts');
@@ -30,4 +30,4 @@ tmp.file(function (err, filename) {
 		  .replace(/pixi_blit/g, 'PIXI.blit')
     );
   });
-}, {postfix: '.ts'});
+});
