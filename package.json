@@ -9,7 +9,7 @@
   "main": "./dist/pixi-blit.js",
   "types": "./dist/pixi-blit.d.ts",
   "homepage": "http://www.pixijs.com/",
-  "bugs": "https://github.com/pixijs/pixi-blit/issues",
+  "bugs": "https://github.com/gameofbombs/pixi-blit/issues",
   "license": "MIT",
   "repository": {
     "type": "git",
